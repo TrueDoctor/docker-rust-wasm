@@ -10,6 +10,7 @@ RUN wget "https://raw.githubusercontent.com/TrueDoctor/ratatosk/master/shell.nix
     rustup install nightly-2020-02-17; \
     rustup default nightly-2020-02-17; \
     rustup target add wasm32-unknown-unknown; \
+    cargo install cargo-make; \
     chmod -R a+w $RUSTUP_HOME $CARGO_HOME; \
     rustup --version; \
     cargo --version; \
