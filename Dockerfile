@@ -2,7 +2,7 @@ FROM nixos/nix
 
 # XXX find a way to keep this value automatically in sync
 # with the rask-default.
-ARG nightly_version=2020-02-24
+ARG nightly_version=2020-02-28
 
 ENV RUSTUP_HOME=/usr/local/rustup \
     CARGO_HOME=/usr/local/cargo \
