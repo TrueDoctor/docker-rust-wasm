@@ -9,7 +9,12 @@ ENV RUSTUP_HOME=/usr/local/rustup \
     CARGO_HOME=/usr/local/cargo \
     PATH=/usr/local/cargo/bin:$PATH
 
-RUN wget "https://raw.githubusercontent.com/TrueDoctor/ratatosk/master/shell.nix"; \
+# nix-channel --update needed to make sure we are at latest `nixos-unstable`.
+# Unfortunately, the current `nixos/nix:latest` is pretty far behind and misses
+# (at least) the following rustup bugfix: https://github.com/NixOS/nixpkgs/pull/92615
+RUN nix-channel --update
+
+RUN wget "https://raw.githubusercontent.com/TrueDoctor/ratatosk/upd-nixpkgs/shell.nix"; \
     nix-env -iA nixpkgs.rustup; \
     nix-shell; \
     rustup install nightly${nightly_version}; \
