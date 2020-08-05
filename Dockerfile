@@ -14,7 +14,7 @@ ENV RUSTUP_HOME=/usr/local/rustup \
 # (at least) the following rustup bugfix: https://github.com/NixOS/nixpkgs/pull/92615
 RUN nix-channel --update
 
-RUN wget "https://raw.githubusercontent.com/TrueDoctor/ratatosk/upd-nixpkgs/shell.nix"; \
+RUN wget "https://raw.githubusercontent.com/TrueDoctor/ratatosk/master/shell.nix"; \
     nix-env -iA nixpkgs.rustup; \
     nix-shell; \
     rustup install nightly${nightly_version}; \
